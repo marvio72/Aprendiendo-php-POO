@@ -64,6 +64,7 @@ echo $coche -> getVelocidad();
 
 echo "<br/>";
 
+// disminulle la velocidad del coche
 $coche->frenar();
 $coche->frenar();
 $coche->frenar();
