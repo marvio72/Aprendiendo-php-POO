@@ -1,86 +1,14 @@
 <?php
-// Programación Orientada a Objetos en PHP (POO)
+require_once 'coche.php';
 
-// Definir una clase (molde para crear más objetos de tipo coche con caracteristicas parecidas)
-
-class Coche {
-
-        // Atributos o propiedades (variables)
-        public $color = 'Rojo';
-        public $marca = 'Ferrari';
-        public $modelo = 'Aventador';
-        public $velocidad = 300;
-        public $caballaje = 500;
-        public $plazas = 2;
-
-        // Métodos, son acciones que hace el objeto (antes funciones)
-        // get buena practica para conseguir propiedades
-        public function getColor(){
-            // Busca en esta clase la propiedad X
-            return $this -> color;
-        }
-
-        public function setColor($color){
-            $this->color = $color;
-        }
-        public function setModelo($modelo){
-            $this->modelo = $modelo;
-        }
-
-        public function acelerar() {
-            $this->velocidad++;
-        }
-
-        public function frenar() {
-            $this->velocidad--;
-        }
-
-        public function getVelocidad(){
-            return $this->velocidad;
-        }
-} //fin definicion de la clase
-
-// Crear un objeto / Instanciar la clase
-$coche = new Coche();
-
-// Usar los metodos
-echo $coche -> getVelocidad();
-
-echo "<br/>";
-
-// Cambiar el color del Coche
-$coche->setColor("Amarillo");
-echo "El color del coche es: ".$coche->getColor();
-
-echo "<br/>";
-
-//Acelerar el coche
-$coche->acelerar();
-$coche->acelerar();
-$coche->acelerar();
-$coche->acelerar();
-
-echo $coche -> getVelocidad();
-
-echo "<br/>";
-
-// disminulle la velocidad del coche
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-$coche->frenar();
-
-echo "La velocidad del coche es: ".$coche -> getVelocidad();
-
-$coche2 = new Coche();
-$coche2->setColor("Verde");
-$coche2->setModelo("Gallardo");
-
+$coche  = new Coche('Blanco','Ford','Fiesta',250,110,5);
+$coche1 = new Coche('Negro','Mercedes','Clase A',350,200,5);
+$coche2 = new Coche('Verde','Seat','Ibiza',150,100,4);
+$coche3 = new Coche('Azul','Renault','Clio',150,110,4);
 var_dump($coche);
+var_dump($coche1);
 var_dump($coche2);
+var_dump($coche3);
+
+//Solicitar el dato de uno de sus atributos
+echo $coche->caballaje;
