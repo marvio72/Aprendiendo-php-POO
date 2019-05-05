@@ -80,6 +80,7 @@ class Coche {
             $informacion = "Tu dato es este: $miObjeto";
         }
         return $informacion;
+        //Nota importante: Nunca hay que imprimir datos dentro de una misma función
     }
 } //fin definicion de la clase   
 
