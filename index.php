@@ -1,43 +1,32 @@
 <?php
 
-class Usuario{
-    
-    const URL_COMPLETA = "http://localhost";
-    public $email;
-    public $password;
+abstract class Ordenador{
+    public $encendido;
 
-    public function getEmail()
-    {
-        return $this->email;
-    }
+    abstract public function encender();
 
-    
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
+    public function apagar(){
+        $this->encendido = false;
     }
 }
 
-//maneras de ingresar al valor de la constante.
-echo Usuario::URL_COMPLETA;
+class PcAsus extends Ordenador{
+    public $software;
 
-echo "<br>";
-$usuario = new Usuario;
-echo $usuario::URL_COMPLETA;
-var_dump($usuario);
+    public function arrancarSoftware(){
+        $this->software = true;
+    }
+
+    public function encender(){
+        $this->encendido = true;
+    }
+} 
+
+$ordenador = new PcAsus();
+$ordenador->arrancarSoftware();
+$ordenador->encender();
+$ordenador->apagar();
+
+var_dump($ordenador);
+
+
