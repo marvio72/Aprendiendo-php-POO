@@ -1,12 +1,11 @@
 <?php
-require_once "clases.php";
+require_once "configuracion.php";
 
-//Instancia de Persona
-$persona = new Persona();
-var_dump($persona);
+Configuracion::setColor("blue");
+Configuracion::setNewletter(true);
+Configuracion::setEntorno("localhost");
 
-$informatico = new Informatico();
-var_dump($informatico);
 
-$tecnicoRedes = new TecnicoRedes();
-var_dump($tecnicoRedes);
+echo Configuracion::$color.'<br>';
+echo Configuracion::$newletter.'<br>';
+echo Configuracion::$entorno.'<br>';
