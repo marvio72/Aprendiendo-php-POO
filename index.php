@@ -1,16 +1,43 @@
 <?php
-require_once "configuracion.php";
 
-Configuracion::setColor("blue");
-Configuracion::setNewletter(true);
-Configuracion::setEntorno("localhost");
+class Usuario{
+    
+    const URL_COMPLETA = "http://localhost";
+    public $email;
+    public $password;
 
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
-echo Configuracion::$color.'<br>';
-echo Configuracion::$newletter.'<br>';
-echo Configuracion::$entorno.'<br>';
+    
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
-$configuracion = new Configuracion();
-$configuracion::$color = "Rojo";
-echo $configuracion::$color;
-var_dump($configuracion);
+        return $this;
+    }
+
+    
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+}
+
+//maneras de ingresar al valor de la constante.
+echo Usuario::URL_COMPLETA;
+
+echo "<br>";
+$usuario = new Usuario;
+echo $usuario::URL_COMPLETA;
+var_dump($usuario);
