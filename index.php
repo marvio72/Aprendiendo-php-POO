@@ -1,32 +1,45 @@
 <?php
 
-abstract class Ordenador{
-    public $encendido;
-
-    abstract public function encender();
-
-    public function apagar(){
-        $this->encendido = false;
+trait Utilidades{
+    public function mostrarNombre(){
+        echo "<h1>El nombre es ".$this->nombre."</h1>";
     }
 }
 
-class PcAsus extends Ordenador{
-    public $software;
+class Coche {
+    public $nombre;
+    public $marca;
 
-    public function arrancarSoftware(){
-        $this->software = true;
-    }
+    use Utilidades;
+}
 
-    public function encender(){
-        $this->encendido = true;
-    }
-} 
+class Persona {
+    public $nombre;
+    public $apellido;
 
-$ordenador = new PcAsus();
-$ordenador->arrancarSoftware();
-$ordenador->encender();
-$ordenador->apagar();
+    use Utilidades;
+}
 
-var_dump($ordenador);
+class VideoJuego {
+    public $nombre;
+    public $anio;
+
+    use Utilidades;
+}
+
+$coche = new Coche();
+$coche->nombre = "Ferrari";
+$coche->mostrarNombre();
+
+$persona = new Persona();
+$persona->nombre = "Marco";
+$persona->mostrarNombre();
+
+$videojuego = new VideoJuego();
+$videojuego->nombre = "Fifa 2019";
+$videojuego->mostrarNombre();
+
+
+
 
 
