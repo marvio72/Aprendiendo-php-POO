@@ -1,5 +1,7 @@
 <?php
 
+//Los destructores iniven la acción del constructor, cuando este
+//finaliza ya no puede ser usado ya que el destructor lo cierra.
 class Usuario {
     public $nombre;
     public $email;
