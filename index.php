@@ -1,28 +1,37 @@
 <?php
 
-//Los destructores iniven la acción del constructor, cuando este
-//finaliza ya no puede ser usado ya que el destructor lo cierra.
-class Usuario {
-    public $nombre;
-    public $email;
+class Persona {
+    private $nombre;
+    private $edad;
+    private $ciudad;
 
-    public function __construct() {
-        $this->nombre = "Marco Ruvalcaba";
-        $this->email = "mruvalcaba@oversistemas.com";
-        echo "Creando el objeto <br>";    
-    }
-    
-    public function __toString()
-    {
-        return "Hola, {$this->nombre}, estas registrado como {$this->email} <br>";
+    public function __construct($nombre, $edad, $ciudad) {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+        $this->ciudad = $ciudad;        
     }
 
-    public function __destruct() {
-        echo "Destruyendo el objeto";
+    public function __call($name, $arguments) {
+        $prefix_metodo = substr($name, 0, 3);
+
+        if($prefix_metodo == "get"){
+            $nombre_metodo = substr(strtolower($name), 3);
+
+            if (!isset($this->$nombre_metodo)) {
+                return "No existe el método";
+            }
+
+            return $this->$nombre_metodo;
+        }else{
+            return "No existe el método";
+        }
+        
     }
 }
 
 
-$usuario = new Usuario();
-
-echo $usuario;
+$persona = new Persona("Marco",47,"Guadalajara");
+echo $persona->getNombre();
+echo $persona->getEdad();
+echo $persona->getCiudad();
+echo $persona->getOlivia();
