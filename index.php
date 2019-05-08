@@ -1,45 +1,21 @@
 <?php
 
-trait Utilidades{
-    public function mostrarNombre(){
-        echo "<h1>El nombre es ".$this->nombre."</h1>";
+class Usuario {
+    public $nombre;
+    public $email;
+
+    public function __construct() {
+        echo "Creando el objeto <br>";    
+    }
+    
+    public function __destruct() {
+        echo "Destruyendo el objeto";
     }
 }
 
-class Coche {
-    public $nombre;
-    public $marca;
 
-    use Utilidades;
+$usuario = new Usuario();
+
+for ($i = 0; $i <= 200; $i++){
+    echo $i."<br>";
 }
-
-class Persona {
-    public $nombre;
-    public $apellido;
-
-    use Utilidades;
-}
-
-class VideoJuego {
-    public $nombre;
-    public $anio;
-
-    use Utilidades;
-}
-
-$coche = new Coche();
-$coche->nombre = "Ferrari";
-$coche->mostrarNombre();
-
-$persona = new Persona();
-$persona->nombre = "Marco";
-$persona->mostrarNombre();
-
-$videojuego = new VideoJuego();
-$videojuego->nombre = "Fifa 2019";
-$videojuego->mostrarNombre();
-
-
-
-
-
