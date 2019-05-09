@@ -11,4 +11,8 @@ class Usuario {
         $this->nombre = "Rafael Espinoza";
         $this->email = "respinoza@oversistemas.com";
     }
+
+    function informacion() {
+        echo "Namespace en clase Usuario/Administrador: " . __NAMESPACE__ . "<br>";
+    }
 }

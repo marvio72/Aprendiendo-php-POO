@@ -53,28 +53,18 @@ class Principal{
 
         return $this;
     }
+    function informacion(){
+        echo "Nombre de la Clase: ".__CLASS__.'<br>';
+        echo "Ubicación del metodo: ".__METHOD__.'<br>';
+        echo "Ubicación del Archivo: ".__FILE__.'<br>';
+    }
 }
 //Objeto Principal
 $principal = new Principal();
-// como comprobar que existe un metodo dentro de una clase.
-$metodos = get_class_methods($principal);
-var_dump($metodos);
-$busqueda = array_search('setApellidos',$metodos);
-var_dump($busqueda);
-// var_dump($principal->usuario);
-// var_dump($principal->categoria);
-// var_dump($principal->entrada);
+$principal->informacion();
 
-//Objeto otro paquete
-$usuario = new Ua;
-//Es lo mismo que $usuario = new PanelAdministrador\Usuario();
-var_dump($usuario);
+$usuario = new U;
+$usuario->informacion();
 
-//Comprobar si existe una clase
-//el arroba nos ayudo a ocultar los warnins de los errores.
-$clase = @class_exists('PanelAdministrador\Usuario');
-if ($clase) {
-    echo "<h1>La Clase SI existe</h1>";
-}else{
-    echo "<h1>La Clase NO existe</h1>";
-}
+$usuarioAdmin = new Ua;
+$usuarioAdmin->informacion();
